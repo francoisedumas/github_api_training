@@ -28,3 +28,6 @@ git add . && git commit -m "My new Github API training app"
 gh repo create
 git push origin master
 ```
+
+## Setup of Octokit gem
+https://octokit.github.io/octokit.rb/
