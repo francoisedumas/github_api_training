@@ -1,0 +1,17 @@
+<h1>My Repo<h1>
+<div>
+  <% @my_repos.each do |repo| %>
+    <h4>
+    <%= repo.full_name %>
+    </h4>
+  <% end %>
+</div>
+
+<h1>Private Repo<h1>
+<div>
+  <% @private_repos.each do |repo| %>
+    <h4>
+    <%= repo.full_name %>
+    </h4>
+  <% end %>
+</div>
