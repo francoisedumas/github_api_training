@@ -10,7 +10,6 @@ class PagesController < ApplicationController
   def show
     @repo = @client.repo(params[:repo_full_name])
     @collabs = @client.collabs(@repo.id).map{ |collab| collab[:login] }
-    raise
   end
 
   def destroy
