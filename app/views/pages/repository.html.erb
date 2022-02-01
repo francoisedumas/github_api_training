@@ -11,3 +11,10 @@
 <% else %>
     <p>No collaborator</p>
 <% end %>
+
+<%= form_with url: "/add", method: :get do |form| %>
+  <%= form.label :collab_login, "Add a collaborator's login" %>
+  <%= form.hidden_field "repo_full_name", value: @repo.full_name %>
+  <%= form.text_field :collab_login %>
+  <%= form.submit "Submit" %>
+<% end %>
