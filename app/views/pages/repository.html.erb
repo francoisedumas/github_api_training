@@ -1,2 +1,13 @@
+<%= link_to "back", repositories_path %>
+
 <h1>Individual repo</h1>
+<h2>Repo name</h2>
 <h4><%= @repo.full_name %></h4>
+<h2>Repo collaborators</h2>
+<% if @collabs.presence %>
+  <% @collabs.each_with_index do |collab, index| %>
+    <p><%= "#{index + 1} - #{collab}" %></p>
+  <% end %>
+<% else %>
+    <p>No collaborator</p>
+<% end %>

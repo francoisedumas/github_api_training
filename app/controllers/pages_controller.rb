@@ -8,6 +8,7 @@ class PagesController < ApplicationController
 
   def repository
     @repo = @client.repo(params[:repo_full_name])
+    @collabs = @client.collabs(@repo.id).map{ |collab| collab[:login] }
   end
 
   private
