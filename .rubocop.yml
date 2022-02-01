@@ -1,0 +1,220 @@
+require:
+  - rubocop-rails
+  - rubocop-performance
+  - rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 3.0
+  Exclude:
+    - vendor/**/*
+    - Guardfile
+    - node_modules/**/*
+    - bin/**/*
+    - db/**/*
+  NewCops: disable
+
+RSpec/Rails/HttpStatus:
+  EnforcedStyle: numeric
+
+Style/Documentation:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: double_quotes
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Layout/LineLength:
+  Enabled: true
+  AutoCorrect: true
+  Max: 175
+  Exclude:
+    - config/initializers/simple_form_bootstrap.rb
+
+Layout/BlockAlignment:
+  Enabled: true
+  EnforcedStyleAlignWith: start_of_block
+
+Layout/CaseIndentation:
+  Enabled: true
+  EnforcedStyle: end
+
+# Layout/ClassStructure:
+#   Enabled: true
+#   Categories:
+#     module_inclusion:
+#       - include
+#       - prepend
+#       - extend
+#     attribute_macros:
+#       - store_accessor
+#       - attr_accessor
+#       - attr_reader
+#       - attr_writer
+#     association:
+#       - belongs_to
+#       - has_one
+#       - has_and_belongs_to_many
+#       - has_many
+#     macros:
+#       - validates
+#       - validate
+#   ExpectedOrder:
+#       - module_inclusion
+#       - constants
+#       - public_attribute_macros
+#       - association
+#       - public_delegate
+#       - macros
+#       - public_class_methods
+#       - initializer
+#       - public_methods
+#       - protected_attribute_macros
+#       - protected_methods
+#       - private_attribute_macros
+#       - private_delegate
+#       - private_methods
+#
+Naming/BlockParameterName:
+  Enabled: true
+  MinNameLength: 3
+  AllowedNames:
+    - f
+    - t
+    - id
+    - io
+  ForbiddenNames: []
+
+Metrics/BlockLength:
+  Exclude:
+    - 'lib/**/*'
+    - 'db/schema.rb'
+    - 'config/initializers/*'
+    - 'config/environments/*'
+    - 'config/routes.rb'
+    - 'app/admin/**/*'
+    - 'spec/**/*'
+    - 'test/**/*'
+
+Metrics/MethodLength:
+  Max: 30
+
+Metrics/ModuleLength:
+  Max: 90
+
+Metrics/AbcSize:
+  Max: 30
+
+Rails:
+  Description: 'Rails specific cops are always run'
+  Enabled: true
+
+Rails/UnknownEnv:
+  Environments:
+    - production
+    - development
+    - test
+    - staging
+
+Rails/Output:
+  Exclude:
+    - 'db/seeds.rb'
+
+Rails/HttpStatus:
+  EnforcedStyle: numeric
+
+RSpec/MessageExpectation:
+  Enabled: true
+  EnforcedStyle: allow
+
+RSpec/MultipleExpectations:
+  Enabled: true
+  Exclude:
+    - 'spec/system/**/*'
+
+RSpec/ExampleLength:
+  Enabled: true
+  Max: 15
+  Exclude:
+    - 'spec/system/**/*'
+
+RSpec/EmptyLineAfterExample:
+  Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 20
+
+RSpec/DescribedClass:
+  Enabled: false
+
+RSpec/AnyInstance:
+  Enabled: false
+
+# === To be refacto
+RSpec/NestedGroups:
+   Max: 5 # 3 is nice
+
+Style/MultilineIfModifier:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Lint/UselessMethodDefinition:
+  Enabled: false
+
+RSpec/EmptyExampleGroup:
+  Enabled: false
+
+Rails/OutputSafety:
+  Enabled: false
+
+Style/AccessModifierDeclarations:
+  Enabled: false
+
+RSpec/NamedSubject:
+  Enabled: false
+
+RSpec/BeforeAfterAll:
+  Enabled: false
+
+Naming/VariableNumber:
+  Enabled: false
+
+Lint/ShadowingOuterLocalVariable:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Max: 12 # 7 default
+
+Metrics/ClassLength:
+  Max: 175 # default to 30
+  Exclude:
+    - 'test/**/*'
+
+Metrics/PerceivedComplexity:
+  Max: 10
+
+Lint/MissingSuper:
+  Enabled: false
+
+Lint/UnusedMethodArgument:
+  Enabled: false
+
+Naming/AccessorMethodName:
+  Enabled: false
+
+Naming/PredicateName:
+   Enabled: false
+
+Lint/SuppressedException:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
+################
