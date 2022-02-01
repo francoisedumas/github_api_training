@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get "repositories", to: "pages#repositories"
   get "repository", to: "pages#repository"
   get "remove", to: "pages#remove"
+  get "add", to: "pages#add"
 end
