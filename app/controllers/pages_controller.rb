@@ -1,47 +1,47 @@
 class PagesController < ApplicationController
-  before_action :set_client, only: %i[repositories repository remove add]
-  before_action :set_repo, only: %i[repository remove add]
+  before_action :set_client, only: %i[index show destroy update]
+  before_action :set_repo, only: %i[show destroy update]
 
-  def repositories
+  def index
     @my_repos = @client.repos({}, query: {type: 'owner', sort: 'asc'})
     @private_repos = @client.repos({}, query: {type: 'private', sort: 'asc'})
   end
 
-  def repository
+  def show
     @repo = @client.repo(params[:repo_full_name])
     @collabs = @client.collabs(@repo.id).map{ |collab| collab[:login] }
     raise
   end
 
-  def remove
+  def destroy
     repo_full_name = params[:repo_full_name]
     collab_login = params[:collab_login]
 
     if @repo[:owner][:login] == collab_login
       flash[:alert] = "Action can't be performed, as #{collab_login} is the owner of the repo"
-      redirect_to repository_path(repo_full_name: repo_full_name)
+      redirect_to show_path(repo_full_name: repo_full_name)
     elsif @client.remove_collaborator(repo_full_name, collab_login)
       flash[:notice] = "#{collab_login} has been removed successfully!"
-      redirect_to repository_path(repo_full_name: repo_full_name)
+      redirect_to show_path(repo_full_name: repo_full_name)
     else
       flash[:alert] = "#{collab_login} has not been removed!"
-      redirect_to repository_path(repo_full_name: repo_full_name)
+      redirect_to show_path(repo_full_name: repo_full_name)
     end
   end
 
-  def add
+  def update
     repo_full_name = params[:repo_full_name]
     collab_login = params[:collab_login]
 
     if @repo[:owner][:login] == collab_login
       flash[:alert] = "Action can't be performed, as #{collab_login} is already the owner of the repo"
-      redirect_to repository_path(repo_full_name: repo_full_name)
+      redirect_to show_path(repo_full_name: repo_full_name)
     elsif @client.add_collaborator(repo_full_name, collab_login)
       flash[:notice] = "#{collab_login} has been added successfully!"
-      redirect_to repository_path(repo_full_name: repo_full_name)
+      redirect_to show_path(repo_full_name: repo_full_name)
     else
       flash[:alert] = "#{collab_login} has not been removed!"
-      redirect_to repository_path(repo_full_name: repo_full_name)
+      redirect_to show_path(repo_full_name: repo_full_name)
     end
   end
 
