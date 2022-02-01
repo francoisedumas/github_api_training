@@ -2,7 +2,7 @@
 <div>
   <% @my_repos.each do |repo| %>
     <h4>
-      <%= link_to repo.full_name, repository_path(repo_full_name: repo.full_name) %>
+      <%= link_to repo.full_name, show_path(repo_full_name: repo.full_name) %>
     </h4>
   <% end %>
 </div>
