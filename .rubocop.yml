@@ -23,6 +23,9 @@ Style/StringLiterals:
   Enabled: true
   EnforcedStyle: double_quotes
 
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
 Layout/LineLength:
   Enabled: true
   AutoCorrect: true

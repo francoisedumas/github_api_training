@@ -18,14 +18,13 @@ class PagesController < ApplicationController
 
     if @repo[:owner][:login] == collab_login
       flash[:alert] = "Action can't be performed, as #{collab_login} is the owner of the repo"
-      redirect_to show_path(repo_full_name: repo_full_name)
     elsif @client.remove_collaborator(repo_full_name, collab_login)
       flash[:notice] = "#{collab_login} has been removed successfully!"
-      redirect_to show_path(repo_full_name: repo_full_name)
     else
       flash[:alert] = "#{collab_login} has not been removed!"
-      redirect_to show_path(repo_full_name: repo_full_name)
     end
+
+    redirect_to show_path(repo_full_name: repo_full_name)
   end
 
   def update
@@ -34,14 +33,12 @@ class PagesController < ApplicationController
 
     if @repo[:owner][:login] == collab_login
       flash[:alert] = "Action can't be performed, as #{collab_login} is already the owner of the repo"
-      redirect_to show_path(repo_full_name: repo_full_name)
     elsif @client.add_collaborator(repo_full_name, collab_login)
       flash[:notice] = "#{collab_login} has been added successfully!"
-      redirect_to show_path(repo_full_name: repo_full_name)
     else
       flash[:alert] = "#{collab_login} has not been removed!"
-      redirect_to show_path(repo_full_name: repo_full_name)
     end
+    redirect_to show_path(repo_full_name: repo_full_name)
   end
 
   private
