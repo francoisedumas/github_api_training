@@ -6,7 +6,7 @@
 <h2>Repo collaborators</h2>
 <% if @collabs.presence %>
   <% @collabs.each_with_index do |collab, index| %>
-    <p><%= "#{index + 1} - #{collab}" %></p>
+    <p><%= "#{index + 1} - #{collab}" %> <%= link_to "remove", remove_path(collab_login: collab, repo_full_name: @repo.full_name) %></p>
   <% end %>
 <% else %>
     <p>No collaborator</p>

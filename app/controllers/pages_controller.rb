@@ -11,6 +11,13 @@ class PagesController < ApplicationController
     @collabs = @client.collabs(@repo.id).map{ |collab| collab[:login] }
   end
 
+  def remove
+    repo_full_name = params[:repo_full_name]
+    collab_login = params[:collab_login]
+    flash[:notice] = "#{collab_login} has been removed successfully!"
+    redirect_to repository_path(repo_full_name: repo_full_name)
+  end
+
   private
 
   def set_client
