@@ -51,6 +51,9 @@ gem "bootsnap", require: false
 # Ruby toolkit for the GitHub API.
 gem "octokit", "~> 4.0"
 
+#gem rest-client (api)
+gem 'rest-client'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[mri mingw x64_mingw]
