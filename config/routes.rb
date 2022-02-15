@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   get "show", to: "pages#show"
   get "destroy", to: "pages#destroy"
   get "update", to: "pages#update"
+
+  get "channels", to: "slacks#channels"
 end
