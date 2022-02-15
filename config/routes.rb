@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   get "destroy", to: "pages#destroy"
   get "update", to: "pages#update"
 
-  get "folders", to: "slacks#folders"
+  get "channels", to: "slacks#channels"
 end
