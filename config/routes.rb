@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   get "update", to: "pages#update"
 
   get "channels", to: "slacks#channels"
+
+  get "folders", to: "dropboxes#folders"
 end
