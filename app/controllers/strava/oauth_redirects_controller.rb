@@ -1,8 +1,8 @@
 class Strava::OauthRedirectsController < ApplicationController
   def complete_connection
     client = Strava::OAuth::Client.new(
-      client_id: "84276",
-      client_secret: "e4b52efc844481d78c6292b02b8181bf49e96586"
+      client_id: ENV['STRAVA_CLIENT_ID'].to_s,
+      client_secret: ENV['STRAVA_SECRET_CLIENT_ID'].to_s
     )
 
     response = client.oauth_token(code: params[:code])
