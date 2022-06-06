@@ -2,6 +2,9 @@ class PagesController < ApplicationController
   before_action :set_client, only: %i[index show destroy update]
   before_action :set_repo, only: %i[show destroy update]
 
+  def dashboard
+  end
+
   def index
     @my_repos = @client.repos({}, query: { type: "owner", sort: "asc" })
     @private_repos = @client.repos({}, query: { type: "private", sort: "asc" })
