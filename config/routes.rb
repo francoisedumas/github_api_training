@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   get "update", to: "pages#update"
 
   get "channels", to: "slacks#channels"
+
+  get "connection", to: "legifrances#connection"
 end
