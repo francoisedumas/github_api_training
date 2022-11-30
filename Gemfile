@@ -53,6 +53,7 @@ gem "octokit", "~> 4.0"
 
 #gem rest-client (api)
 gem 'rest-client'
+gem "httparty"
 
 # Strava API connexion
 gem 'strava-ruby-client'
@@ -79,6 +80,7 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem "byebug"
 end
 
 group :test do

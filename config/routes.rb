@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   get "channels", to: "slacks#channels"
 
+  get "connection", to: "legifrances#connection"
   get "/dashboard", to: "pages#dashboard"
 
   namespace :strava do
