@@ -11,4 +11,19 @@ Rails.application.routes.draw do
   get "channels", to: "slacks#channels"
 
   get "connection", to: "legifrances#connection"
+  get "/dashboard", to: "pages#dashboard"
+
+  namespace :strava do
+    resource :oauth, only: [] do
+      collection do
+        patch :connect
+      end
+    end
+
+    resource :oauth_redirect, only: [] do
+      collection do
+        get :complete_connection
+      end
+    end
+  end
 end
